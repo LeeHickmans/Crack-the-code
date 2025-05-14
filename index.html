@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crack the Code - Move Reports UK</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: #003865;
+    }
+
+    header img {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="text"] {
+      font-size: 2rem;
+      padding: 10px;
+      width: 140px;
+      text-align: center;
+      border: 2px solid #003865;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      background-color: #0075c9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://www.movereportsuk.com/wp-content/uploads/2020/06/move-reports-logo.svg" alt="Move Reports UK Logo" />
+  </header>
+
+  <h1>Crack the Code</h1>
+  <p>Enter the 4-digit code to win the star prize!</p>
+
+  <input type="text" id="codeInput" maxlength="4" inputmode="numeric" pattern="\d{4}" autofocus />
+  <br />
+  <button onclick="checkCode()">Submit</button>
+
+  <div id="result"></div>
+
+  <script>
+    function checkCode() {
+      const correctCode = "6683";
+      const input = document.getElementById("codeInput");
+      const result = document.getElementById("result");
+      const userCode = input.value.trim();
+
+      if (userCode === correctCode) {
+        result.textContent = "🎉 Correct! You cracked the code!";
+        result.className = "success";
+      } else {
+        result.textContent = "❌ Wrong code! Try again.";
+        result.className = "error";
+      }
+
+      input.value = "";
+      input.focus();
+    }
+  </script>
+</body>
+</html>
