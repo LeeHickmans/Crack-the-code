@@ -79,7 +79,15 @@
   <p>Enter the 4-digit code to win the star prize!</p>
 
   <form id="codeForm">
-    <input type="tel" id="code" placeholder="4-digit code" maxlength="4" required pattern="\d{4}" />
+    <input 
+      type="text" 
+      id="code" 
+      placeholder="4-digit code" 
+      maxlength="4" 
+      inputmode="numeric" 
+      pattern="\d*" 
+      required 
+    />
     <button type="submit">Submit</button>
     <button type="button" onclick="resetForm()">Reset</button>
   </form>
