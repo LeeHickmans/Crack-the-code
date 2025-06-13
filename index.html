@@ -80,19 +80,19 @@
 
   <form id="codeForm">
     <input 
-      type="text" 
+      type="number" 
       id="code" 
       placeholder="4-digit code" 
-      maxlength="4" 
       inputmode="numeric" 
       pattern="\d*" 
       required 
+      oninput="this.value = this.value.slice(0,4);" 
     />
     <button type="submit">Submit</button>
     <button type="button" onclick="resetForm()">Reset</button>
   </form>
 
-  <!-- Audio files -->
+  <!-- Sound Effects -->
   <audio id="successSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_c42991589c.mp3" preload="auto"></audio>
   <audio id="failSound" src="https://cdn.pixabay.com/audio/2022/10/03/audio_5cfc161d07.mp3" preload="auto"></audio>
 
@@ -108,7 +108,7 @@
       const codeInput = document.getElementById("code");
       const enteredCode = codeInput.value.trim();
 
-      codeInput.blur(); // Hide keyboard
+      codeInput.blur(); // Hides keyboard on mobile
 
       if (enteredCode === correctCode) {
         successSound.play();
